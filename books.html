@@ -22,29 +22,29 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .name{font-weight:300;font-style:italic;font-size:clamp(3.2rem,12vw,4.8rem);line-height:0.88;letter-spacing:-0.02em;color:var(--paper);margin-bottom:0.8rem}
 .surname{font-style:normal;color:var(--accent);display:block}
 
-.descriptor{font-family:'DM Mono',monospace;font-size:0.54rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-transform:lowercase;margin-bottom:1rem}
+.descriptor{font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-transform:lowercase;margin-bottom:1.2rem}
 
-.nav-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:1.4rem;border-bottom:0.5px solid var(--faint)}
-.ndiv{width:0.5px;height:10px;background:var(--faint);flex-shrink:0}
+.nav-row{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;padding-bottom:1.6rem;border-bottom:0.5px solid var(--faint)}
+.ndiv{width:0.5px;height:12px;background:var(--faint);flex-shrink:0}
 
 .nav-icon{display:flex;align-items:center;justify-content:center;position:relative;text-decoration:none}
-.nav-icon img{width:14px;height:14px;display:block;opacity:0.45;transition:opacity 0.2s}
+.nav-icon img{width:20px;height:20px;display:block;opacity:0.45;transition:opacity 0.2s}
 .nav-icon:hover img{opacity:1}
-.nav-icon-label{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.12em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
+.nav-icon-label{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
 .nav-icon:hover .nav-icon-label{opacity:1}
-.icon-group{display:flex;align-items:center;gap:1rem}
+.icon-group{display:flex;align-items:center;gap:1.2rem}
 
 .books-block{margin-top:2.5rem}
-.item-label{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
+.item-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
 
 .book{padding:1.5rem 0;border-top:0.5px solid var(--faint);border-bottom:0.5px solid var(--faint)}
-.book-status{font-family:'DM Mono',monospace;font-size:0.44rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--dim);margin-bottom:0.6rem}
+.book-status{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--dim);margin-bottom:0.6rem}
 .book-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.4rem;color:var(--paper);margin-bottom:0.5rem;line-height:1.2}
-.book-meta{font-family:'DM Mono',monospace;font-size:0.44rem;letter-spacing:0.12em;text-transform:lowercase;color:var(--dim);margin-bottom:1.2rem}
-.book-desc{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:0.95rem;line-height:1.8;color:#a09688}
+.book-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:lowercase;color:var(--dim);margin-bottom:1.2rem}
+.book-desc{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#a09688}
 
 footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
-.footer-copy{font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
+.footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
 </style>
 </head>
 <body>
@@ -60,30 +60,30 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
   <div class="nav-row">
     <div class="icon-group">
       <a href="index.html" class="nav-icon">
-        <img src="icon-home.svg" alt="home">
+        <img src="icons/icon-home.svg" alt="home">
         <span class="nav-icon-label">home</span>
       </a>
       <a href="about.html" class="nav-icon">
-        <img src="icon-about.svg" alt="about">
+        <img src="icons/icon-about.svg" alt="about">
         <span class="nav-icon-label">about</span>
       </a>
       <a href="books.html" class="nav-icon">
-        <img src="icon-books.svg" alt="books">
+        <img src="icons/icon-books.svg" alt="books">
         <span class="nav-icon-label">books</span>
       </a>
       <a href="contact.html" class="nav-icon">
-        <img src="icon-contact.svg" alt="contact">
+        <img src="icons/icon-contact.svg" alt="contact">
         <span class="nav-icon-label">contact</span>
       </a>
     </div>
     <div class="ndiv"></div>
     <div class="icon-group">
-      <a href="https://instagram.com/" class="nav-icon" target="_blank" rel="noopener">
-        <img src="icon-instagram.svg" alt="instagram">
+      <a href="https://www.instagram.com/i.c.morel/" class="nav-icon" target="_blank" rel="noopener">
+        <img src="icons/icon-instagram.svg" alt="instagram">
         <span class="nav-icon-label">instagram</span>
       </a>
-      <a href="https://goodreads.com/" class="nav-icon" target="_blank" rel="noopener">
-        <img src="icon-goodreads.svg" alt="goodreads">
+      <a href="https://www.goodreads.com/user/show/188700803-i-c-morel" class="nav-icon" target="_blank" rel="noopener">
+        <img src="icons/icon-goodreads.svg" alt="goodreads">
         <span class="nav-icon-label">goodreads</span>
       </a>
     </div>
@@ -94,10 +94,8 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
 
     <div class="book">
       <p class="book-status">forthcoming</p>
-      <!-- replace with your novella title -->
       <p class="book-title">companionship</p>
       <p class="book-meta">novella at the end of 2026</p>
-      <!-- one line description of the book -->
       <p class="book-desc">a story of a man helping others be less lonely, while becoming solitary in the process.</p>
     </div>
 

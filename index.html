@@ -22,46 +22,46 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .name{font-weight:300;font-style:italic;font-size:clamp(3.2rem,12vw,4.8rem);line-height:0.88;letter-spacing:-0.02em;color:var(--paper);margin-bottom:0.8rem}
 .surname{font-style:normal;color:var(--accent);display:block}
 
-.descriptor{font-family:'DM Mono',monospace;font-size:0.54rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-transform:lowercase;margin-bottom:1rem}
+.descriptor{font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-transform:lowercase;margin-bottom:1.2rem}
 
-.nav-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:1.4rem;border-bottom:0.5px solid var(--faint)}
-.ndiv{width:0.5px;height:10px;background:var(--faint);flex-shrink:0}
+.nav-row{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;padding-bottom:1.6rem;border-bottom:0.5px solid var(--faint)}
+.ndiv{width:0.5px;height:12px;background:var(--faint);flex-shrink:0}
 
 .nav-icon{display:flex;align-items:center;justify-content:center;position:relative;text-decoration:none}
-.nav-icon img{width:14px;height:14px;display:block;opacity:0.45;transition:opacity 0.2s}
+.nav-icon img{width:20px;height:20px;display:block;opacity:0.45;transition:opacity 0.2s}
 .nav-icon:hover img{opacity:1}
-.nav-icon-label{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.12em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
+.nav-icon-label{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
 .nav-icon:hover .nav-icon-label{opacity:1}
-.icon-group{display:flex;align-items:center;gap:1rem}
+.icon-group{display:flex;align-items:center;gap:1.2rem}
 
 .writing-block{margin-top:2.5rem}
-.item-label{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
+.item-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
 
 .writing-entry{border-top:0.5px solid var(--faint)}
 .writing-entry:last-of-type{border-bottom:0.5px solid var(--faint)}
 .writing-entry.hidden{display:none}
 
-.entry-header{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0.75rem 0;cursor:pointer}
+.entry-header{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0.85rem 0;cursor:pointer}
 .entry-header:hover .wl-title{color:var(--paper)}
-.wl-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:0.95rem;color:#a09688;transition:color 0.2s;flex:1}
+.wl-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.15rem;color:#a09688;transition:color 0.2s;flex:1}
 .wl-right{display:flex;align-items:baseline;gap:0.8rem;flex-shrink:0}
-.wl-meta{font-family:'DM Mono',monospace;font-size:0.4rem;letter-spacing:0.1em;color:var(--faint);white-space:nowrap}
-.wl-toggle{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--faint);transition:color 0.2s;line-height:1}
+.wl-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--faint);white-space:nowrap}
+.wl-toggle{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);transition:color 0.2s;line-height:1}
 .entry-header:hover .wl-toggle{color:var(--dim)}
 .writing-entry.open .wl-toggle{color:var(--accent)}
 
 .entry-body{overflow:hidden;max-height:0;transition:max-height 0.4s ease, opacity 0.3s ease;opacity:0}
-.writing-entry.open .entry-body{max-height:1000px;opacity:1}
+.writing-entry.open .entry-body{max-height:2000px;opacity:1}
 
-.entry-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;line-height:1.9;color:#a09688;padding:0.2rem 0 1.4rem;white-space:pre-wrap}
+.entry-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.9;color:#a09688;padding:0.2rem 0 1.4rem;white-space:pre-wrap}
 
 .show-more-row{margin-top:1.2rem;display:flex;justify-content:center}
-.show-more{background:transparent;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.46rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.show-more{background:transparent;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.65rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
 .show-more:hover{color:var(--paper);border-color:#5a5040}
 .show-more-row.hidden{display:none}
 
 footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
-.footer-copy{font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
+.footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
 </style>
 </head>
 <body>
@@ -77,30 +77,30 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
   <div class="nav-row">
     <div class="icon-group">
       <a href="index.html" class="nav-icon">
-        <img src="icon-home.svg" alt="home">
+        <img src="icons/icon-home.svg" alt="home">
         <span class="nav-icon-label">home</span>
       </a>
       <a href="about.html" class="nav-icon">
-        <img src="icon-about.svg" alt="about">
+        <img src="icons/icon-about.svg" alt="about">
         <span class="nav-icon-label">about</span>
       </a>
       <a href="books.html" class="nav-icon">
-        <img src="icon-books.svg" alt="books">
+        <img src="icons/icon-books.svg" alt="books">
         <span class="nav-icon-label">books</span>
       </a>
       <a href="contact.html" class="nav-icon">
-        <img src="icon-contact.svg" alt="contact">
+        <img src="icons/icon-contact.svg" alt="contact">
         <span class="nav-icon-label">contact</span>
       </a>
     </div>
     <div class="ndiv"></div>
     <div class="icon-group">
       <a href="https://www.instagram.com/i.c.morel/" class="nav-icon" target="_blank" rel="noopener">
-        <img src="icon-instagram.svg" alt="instagram">
+        <img src="icons/icon-instagram.svg" alt="instagram">
         <span class="nav-icon-label">instagram</span>
       </a>
       <a href="https://www.goodreads.com/user/show/188700803-i-c-morel" class="nav-icon" target="_blank" rel="noopener">
-        <img src="icon-goodreads.svg" alt="goodreads">
+        <img src="icons/icon-goodreads.svg" alt="goodreads">
         <span class="nav-icon-label">goodreads</span>
       </a>
     </div>
@@ -108,10 +108,6 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
 
   <div class="writing-block">
     <p class="item-label">on the site</p>
-
-    <!-- each .writing-entry is one piece -->
-    <!-- copy the whole block to add a new entry -->
-    <!-- entries beyond the 5th will be hidden until "show more" is clicked -->
 
     <div class="writing-entry">
       <div class="entry-header">
@@ -124,7 +120,7 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
       <div class="entry-body">
         <div class="entry-text">I searched the fields for you in vain,
 a fleeting ghost in mist and rain.
-a silver bloom in morning’s glow,
+a silver bloom in morning's glow,
 yet silence lingers where you grow.
 
 you stretched beneath the golden rays,
@@ -132,17 +128,17 @@ your weary stem in warmth would sway.
 the earth embraced you, rich and deep,
 a tender place for roots to keep.
 
-the wind would hum, you’d bend in tune,
+the wind would hum, you'd bend in tune,
 a voice both sharp and soft as plume.
-a petal’s hush, a shrill delight,
+a petal's hush, a shrill delight,
 a song that lingers past the night.
 
-you thrived in soil, in autumn’s air,
+you thrived in soil, in autumn's air,
 in hands that time cannot repair.
 your touch—so light, like woven lace,
-your form—a ghost time can’t erase.
+your form—a ghost time can't erase.
 
-but now you rest where frost won’t fade,
+but now you rest where frost won't fade,
 your petals pale, your breath unmade.
 yet love defies what death demands—
 what once was lost, the mind still recounts.</div>
@@ -212,8 +208,6 @@ root.</div>
       </div>
     </div>
 
-    <!-- add more entries here — they will be hidden past the 5th -->
-
     <div class="show-more-row hidden">
       <button class="show-more">show more</button>
     </div>
@@ -227,7 +221,6 @@ root.</div>
 </div>
 <script>
 const VISIBLE = 5;
-
 const entries = Array.from(document.querySelectorAll('.writing-entry'));
 const showMoreRow = document.querySelector('.show-more-row');
 const showMoreBtn = document.querySelector('.show-more');
