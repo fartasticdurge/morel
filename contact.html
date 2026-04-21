@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>contact — i·c morel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Mono:wght@0,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0e0d0b;
+  --paper:#f5f0e8;
+  --dim:#7a7268;
+  --accent:#8b3a2a;
+  --faint:#2a2620;
+}
+body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100vh;display:flex;justify-content:center;padding:3rem 1.5rem}
+
+.page{width:100%;max-width:420px;display:flex;flex-direction:column;gap:0}
+
+.name{font-weight:300;font-style:italic;font-size:clamp(3.2rem,12vw,4.8rem);line-height:0.88;letter-spacing:-0.02em;color:var(--paper);margin-bottom:0.8rem}
+.surname{font-style:normal;color:var(--accent);display:block}
+
+.descriptor{font-family:'DM Mono',monospace;font-size:0.54rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-transform:lowercase;margin-bottom:1rem}
+
+.nav-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:1.4rem;border-bottom:0.5px solid var(--faint)}
+.ndiv{width:0.5px;height:10px;background:var(--faint);flex-shrink:0}
+
+.nav-icon{display:flex;align-items:center;justify-content:center;position:relative;text-decoration:none}
+.nav-icon img{width:14px;height:14px;display:block;opacity:0.45;transition:opacity 0.2s}
+.nav-icon:hover img{opacity:1}
+.nav-icon-label{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.12em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
+.nav-icon:hover .nav-icon-label{opacity:1}
+.icon-group{display:flex;align-items:center;gap:1rem}
+
+.contact-block{margin-top:2.5rem}
+.item-label{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
+
+.note{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1rem;color:#a09688;line-height:1.7;margin-bottom:2rem}
+
+form{display:flex;flex-direction:column;gap:0}
+
+.field{display:flex;flex-direction:column;border-top:0.5px solid var(--faint);padding:0.9rem 0}
+.field:last-of-type{border-bottom:0.5px solid var(--faint)}
+
+label{font-family:'DM Mono',monospace;font-size:0.44rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--accent);margin-bottom:0.5rem}
+
+input, textarea{background:transparent;border:none;outline:none;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:0.95rem;color:var(--paper);width:100%;resize:none}
+input::placeholder, textarea::placeholder{color:var(--faint)}
+textarea{min-height:100px;line-height:1.6}
+
+.submit-row{margin-top:1.8rem;display:flex;justify-content:flex-end}
+button[type="submit"]{background:transparent;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.5rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);padding:0;border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+button[type="submit"]:hover{color:var(--paper);border-color:#5a5040}
+
+.success{display:none;margin-top:2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#a09688}
+
+footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
+.footer-copy{font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="name">
+    <span>i·c</span>
+    <span class="surname">morel</span>
+  </div>
+
+  <p class="descriptor">fiction &amp; poetry writer</p>
+
+  <div class="nav-row">
+    <div class="icon-group">
+      <a href="index.html" class="nav-icon">
+        <img src="icon-home.svg" alt="home">
+        <span class="nav-icon-label">home</span>
+      </a>
+      <a href="about.html" class="nav-icon">
+        <img src="icon-about.svg" alt="about">
+        <span class="nav-icon-label">about</span>
+      </a>
+      <a href="books.html" class="nav-icon">
+        <img src="icon-books.svg" alt="books">
+        <span class="nav-icon-label">books</span>
+      </a>
+      <a href="contact.html" class="nav-icon">
+        <img src="icon-contact.svg" alt="contact">
+        <span class="nav-icon-label">contact</span>
+      </a>
+    </div>
+    <div class="ndiv"></div>
+    <div class="icon-group">
+      <a href="https://instagram.com/" class="nav-icon" target="_blank" rel="noopener">
+        <img src="icon-instagram.svg" alt="instagram">
+        <span class="nav-icon-label">instagram</span>
+      </a>
+      <a href="https://goodreads.com/" class="nav-icon" target="_blank" rel="noopener">
+        <img src="icon-goodreads.svg" alt="goodreads">
+        <span class="nav-icon-label">goodreads</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <p class="item-label">contact</p>
+    <p class="note">for inquiries, submissions, or correspondence.</p>
+
+    <form action="https://formspree.io/f/mvzdwpld" method="POST">
+      <div class="field">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" placeholder="your name" required>
+      </div>
+      <div class="field">
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="field">
+        <label for="message">message</label>
+        <textarea id="message" name="message" placeholder="your message" required></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit">send →</button>
+      </div>
+    </form>
+
+    <p class="success" id="success">thank you — i'll be in touch.</p>
+  </div>
+
+  <footer>
+    <p class="footer-copy">© i·c morel</p>
+  </footer>
+
+</div>
+<script>
+const form = document.querySelector('form');
+const success = document.getElementById('success');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const data = new FormData(form);
+  const res = await fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}});
+  if(res.ok){
+    form.style.display = 'none';
+    success.style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>
