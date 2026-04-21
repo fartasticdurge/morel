@@ -25,30 +25,40 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .descriptor{font-family:'DM Mono',monospace;font-size:0.54rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-transform:lowercase;margin-bottom:1rem}
 
 .nav-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:1.4rem;border-bottom:0.5px solid var(--faint)}
-.nav-row a{font-family:'DM Mono',monospace;font-size:0.5rem;font-weight:300;letter-spacing:0.18em;color:var(--dim);text-decoration:none;text-transform:lowercase;transition:color 0.2s}
-.nav-row a:hover{color:var(--paper)}
 .ndiv{width:0.5px;height:10px;background:var(--faint);flex-shrink:0}
 
-/* swap these out with your own drawn SVGs when ready */
 .nav-icon{display:flex;align-items:center;justify-content:center;position:relative;text-decoration:none}
-.nav-icon svg, .nav-icon img{width:14px;height:14px;display:block;opacity:0.45;transition:opacity 0.2s}
-.nav-icon:hover svg, .nav-icon:hover img{opacity:1}
+.nav-icon img{width:14px;height:14px;display:block;opacity:0.45;transition:opacity 0.2s}
+.nav-icon:hover img{opacity:1}
 .nav-icon-label{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.12em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
 .nav-icon:hover .nav-icon-label{opacity:1}
-
 .icon-group{display:flex;align-items:center;gap:1rem}
-
-/* drawn icon placeholders — replace svg with <img src="your-icon.svg"> */
-.nav-icon svg{fill:none;stroke:var(--dim);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.2s}
-.nav-icon:hover svg{stroke:var(--paper)}
 
 .writing-block{margin-top:2.5rem}
 .item-label{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
-.writing-link{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0.75rem 0;border-bottom:0.5px solid var(--faint);text-decoration:none}
-.writing-link:first-of-type{border-top:0.5px solid var(--faint)}
-.writing-link:hover .wl-title{color:var(--paper)}
+
+.writing-entry{border-top:0.5px solid var(--faint)}
+.writing-entry:last-of-type{border-bottom:0.5px solid var(--faint)}
+.writing-entry.hidden{display:none}
+
+.entry-header{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0.75rem 0;cursor:pointer}
+.entry-header:hover .wl-title{color:var(--paper)}
 .wl-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:0.95rem;color:#a09688;transition:color 0.2s;flex:1}
-.wl-meta{font-family:'DM Mono',monospace;font-size:0.4rem;letter-spacing:0.1em;color:var(--faint);white-space:nowrap;flex-shrink:0}
+.wl-right{display:flex;align-items:baseline;gap:0.8rem;flex-shrink:0}
+.wl-meta{font-family:'DM Mono',monospace;font-size:0.4rem;letter-spacing:0.1em;color:var(--faint);white-space:nowrap}
+.wl-toggle{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--faint);transition:color 0.2s;line-height:1}
+.entry-header:hover .wl-toggle{color:var(--dim)}
+.writing-entry.open .wl-toggle{color:var(--accent)}
+
+.entry-body{overflow:hidden;max-height:0;transition:max-height 0.4s ease, opacity 0.3s ease;opacity:0}
+.writing-entry.open .entry-body{max-height:1000px;opacity:1}
+
+.entry-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;line-height:1.9;color:#a09688;padding:0.2rem 0 1.4rem;white-space:pre-wrap}
+
+.show-more-row{margin-top:1.2rem;display:flex;justify-content:center}
+.show-more{background:transparent;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.46rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.show-more:hover{color:var(--paper);border-color:#5a5040}
+.show-more-row.hidden{display:none}
 
 footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
 .footer-copy{font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
@@ -64,63 +74,150 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
 
   <p class="descriptor">fiction &amp; poetry writer</p>
 
-  <!-- nav icons: replace each <svg> with <img src="icon-home.svg" alt="home"> when your drawn icons are ready -->
   <div class="nav-row">
     <div class="icon-group">
-
       <a href="index.html" class="nav-icon">
         <img src="icon-home.svg" alt="home">
         <span class="nav-icon-label">home</span>
       </a>
-
       <a href="about.html" class="nav-icon">
-       <img src="icon-about.svg" alt="about">
+        <img src="icon-about.svg" alt="about">
         <span class="nav-icon-label">about</span>
       </a>
-
       <a href="books.html" class="nav-icon">
         <img src="icon-books.svg" alt="books">
         <span class="nav-icon-label">books</span>
       </a>
-
       <a href="contact.html" class="nav-icon">
-		<img src="icon-contact.svg" alt="contact">
+        <img src="icon-contact.svg" alt="contact">
         <span class="nav-icon-label">contact</span>
       </a>
-
     </div>
-
     <div class="ndiv"></div>
-
     <div class="icon-group">
-
       <a href="https://www.instagram.com/i.c.morel/" class="nav-icon" target="_blank" rel="noopener">
-		<img src="icon-instagram.svg" alt="instagram">
+        <img src="icon-instagram.svg" alt="instagram">
         <span class="nav-icon-label">instagram</span>
       </a>
-
       <a href="https://www.goodreads.com/user/show/188700803-i-c-morel" class="nav-icon" target="_blank" rel="noopener">
-		<img src="icon-goodreads.svg" alt="goodreads">
+        <img src="icon-goodreads.svg" alt="goodreads">
         <span class="nav-icon-label">goodreads</span>
       </a>
-
     </div>
   </div>
 
   <div class="writing-block">
     <p class="item-label">on the site</p>
-    <a href="#" class="writing-link">
-      <span class="wl-title">your poem or essay title here</span>
-      <span class="wl-meta">poem — apr 2026</span>
-    </a>
-    <a href="#" class="writing-link">
-      <span class="wl-title">an excerpt from your prose</span>
-      <span class="wl-meta">prose — feb 2026</span>
-    </a>
-    <a href="#" class="writing-link">
-      <span class="wl-title">an essay title here</span>
-      <span class="wl-meta">essay — jan 2026</span>
-    </a>
+
+    <!-- each .writing-entry is one piece -->
+    <!-- copy the whole block to add a new entry -->
+    <!-- entries beyond the 5th will be hidden until "show more" is clicked -->
+
+    <div class="writing-entry">
+      <div class="entry-header">
+        <span class="wl-title">anaphalis</span>
+        <span class="wl-right">
+          <span class="wl-meta">february 2025</span>
+          <span class="wl-toggle">+</span>
+        </span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-text">I searched the fields for you in vain,
+a fleeting ghost in mist and rain.
+a silver bloom in morning’s glow,
+yet silence lingers where you grow.
+
+you stretched beneath the golden rays,
+your weary stem in warmth would sway.
+the earth embraced you, rich and deep,
+a tender place for roots to keep.
+
+the wind would hum, you’d bend in tune,
+a voice both sharp and soft as plume.
+a petal’s hush, a shrill delight,
+a song that lingers past the night.
+
+you thrived in soil, in autumn’s air,
+in hands that time cannot repair.
+your touch—so light, like woven lace,
+your form—a ghost time can’t erase.
+
+but now you rest where frost won’t fade,
+your petals pale, your breath unmade.
+yet love defies what death demands—
+what once was lost, the mind still recounts.</div>
+      </div>
+    </div>
+
+    <div class="writing-entry">
+      <div class="entry-header">
+        <span class="wl-title">excerpt from companionship</span>
+        <span class="wl-right">
+          <span class="wl-meta">march 2026</span>
+          <span class="wl-toggle">+</span>
+        </span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-text">I looked over my shoulder and Helene was rubbing her wrist, looking at a fixed point on the light orange painted wall.
+
+"When Toomas was away, we didn't always know where he was. Sometimes weeks passed without a letter. You learn to imagine the worst."
+
+She rarely spoke of her late husband, but given that black-and-white photo of his hung on the wall in the living room.  she must have cared about him a lot. The kettle rang just as I started drying the pan with a rag I picked up from the stove handle and turned around to watch Helene pour the hot water into the two teacups she had set on the counter.
+
+"Did he write often?" I asked.
+
+"He did at first. He had terrible handwriting and didn't write much, but he said once that he enjoyed the lengthy letters I wrote to him, telling him about the children, the house—we lived closer to Narva at the time and how the crops were growing—we had a lot of that in Kudruküla—and—oh, did you see on the news how a few weeks ago houses in the Kudruküla area in Narva were flooded and some residents were evacuated? Such a pity."
+
+I dried my hands on the towel and sat down at the table, the chair creaking, picking the tea and bringing it closer, the steam felt quite pleasant on my face and almost burned my tongue on the bitter-tasting liquid.
+
+"You wrote about crops?"
+
+She chuckled.
+
+"You write about whatever is in front of you. I still remember the wet smell in the air as we dug up the potatoes in the cold, frost coming early and the cabbage heads being too small one year, but it was better to have food in the cellar than nothing at all and we had to share most of the crops with the cooperative, but it was better than being in some of the other neighborhoods, closer to Narva."</div>
+      </div>
+    </div>
+
+    <div class="writing-entry">
+      <div class="entry-header">
+        <span class="wl-title">orchestrion</span>
+        <span class="wl-right">
+          <span class="wl-meta">february 2025</span>
+          <span class="wl-toggle">+</span>
+        </span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-text">hush, hush
+you mustn't talk too much
+I fear you must be out of touch
+your mechanism doth protest too much
+spin, spin
+delicate arms, thin
+merry-go-round-tailspin
+you never leave your black tin
+clink, clink
+playground out of sync
+welded, dusted to the brink
+bound to bypass a magic link
+plink, plink
+a note as black as ink
+antique descant one might think
+scrape-clink
+clink, cli—clink
+quiescence—
+quietude—
+dust has—
+taken—
+root.</div>
+      </div>
+    </div>
+
+    <!-- add more entries here — they will be hidden past the 5th -->
+
+    <div class="show-more-row hidden">
+      <button class="show-more">show more</button>
+    </div>
+
   </div>
 
   <footer>
@@ -128,5 +225,38 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
   </footer>
 
 </div>
+<script>
+const VISIBLE = 5;
+
+const entries = Array.from(document.querySelectorAll('.writing-entry'));
+const showMoreRow = document.querySelector('.show-more-row');
+const showMoreBtn = document.querySelector('.show-more');
+
+if(entries.length > VISIBLE){
+  entries.slice(VISIBLE).forEach(e => e.classList.add('hidden'));
+  showMoreRow.classList.remove('hidden');
+}
+
+showMoreBtn.addEventListener('click', function(){
+  entries.forEach(e => e.classList.remove('hidden'));
+  showMoreRow.classList.add('hidden');
+});
+
+entries.forEach(entry => {
+  const header = entry.querySelector('.entry-header');
+  const toggle = entry.querySelector('.wl-toggle');
+  header.addEventListener('click', function(){
+    const isOpen = entry.classList.contains('open');
+    entries.forEach(e => {
+      e.classList.remove('open');
+      e.querySelector('.wl-toggle').textContent = '+';
+    });
+    if(!isOpen){
+      entry.classList.add('open');
+      toggle.textContent = '−';
+    }
+  });
+});
+</script>
 </body>
 </html>
