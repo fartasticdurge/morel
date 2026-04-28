@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>i·c morel</title>
+<link rel="canonical" href="https://icmorel.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Mono:wght@0,300&display=swap" rel="stylesheet">
 <style>
@@ -108,110 +109,10 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
 
   <div class="writing-block">
     <p class="item-label">works</p>
-
-    <div class="writing-entry">
-      <div class="entry-header">
-        <span class="wl-title">anaphalis</span>
-        <span class="wl-right">
-          <span class="wl-meta">february 2025</span>
-          <span class="wl-toggle">+</span>
-        </span>
-      </div>
-      <div class="entry-body">
-        <div class="entry-text">I searched the fields for you in vain,
-a fleeting ghost in mist and rain.
-a silver bloom in morning's glow,
-yet silence lingers where you grow.
-
-you stretched beneath the golden rays,
-your weary stem in warmth would sway.
-the earth embraced you, rich and deep,
-a tender place for roots to keep.
-
-the wind would hum, you'd bend in tune,
-a voice both sharp and soft as plume.
-a petal's hush, a shrill delight,
-a song that lingers past the night.
-
-you thrived in soil, in autumn's air,
-in hands that time cannot repair.
-your touch—so light, like woven lace,
-your form—a ghost time can't erase.
-
-but now you rest where frost won't fade,
-your petals pale, your breath unmade.
-yet love defies what death demands—
-what once was lost, the mind still recounts.</div>
-      </div>
-    </div>
-
-    <div class="writing-entry">
-      <div class="entry-header">
-        <span class="wl-title">orchestrion</span>
-        <span class="wl-right">
-          <span class="wl-meta">february 2025</span>
-          <span class="wl-toggle">+</span>
-        </span>
-      </div>
-      <div class="entry-body">
-        <div class="entry-text">hush, hush
-you mustn't talk too much
-I fear you must be out of touch
-your mechanism doth protest too much
-spin, spin
-delicate arms, thin
-merry-go-round-tailspin
-you never leave your black tin
-clink, clink
-playground out of sync
-welded, dusted to the brink
-bound to bypass a magic link
-plink, plink
-a note as black as ink
-antique descant one might think
-scrape-clink
-clink, cli—clink
-quiescence—
-quietude—
-dust has—
-taken—
-root.</div>
-      </div>
-    </div>
-
-      <div class="writing-entry">
-      <div class="entry-header">
-        <span class="wl-title">excerpt from companionship</span>
-        <span class="wl-right">
-          <span class="wl-meta">march 2026</span>
-          <span class="wl-toggle">+</span>
-        </span>
-      </div>
-      <div class="entry-body">
-        <div class="entry-text">I looked over my shoulder and Helene was rubbing her wrist, staring at a fixed point on the light orange painted wall.
-
-"When Toomas was away, we didn't always know where he was. Sometimes weeks passed without a letter. You learn to imagine the worst."
-
-She rarely spoke of her late husband, but given that black-and-white photo of his hung on the wall in the living room, she must have cared about him. The kettle rang just as I started drying the pan with a rag I picked up from the stove handle and turned around to watch Helene pour the hot water into two teacups she had set on the counter.
-
-"Did he write often?" I asked.
-
-"He did at first. He had terrible handwriting and didn't write much, but he said once that he enjoyed the lengthy letters I wrote to him, telling him about the children, the house—we lived closer to Narva at the time and how the crops were growing—we had a lot of that in Kudruküla—and—oh, did you see on the news how a few weeks ago houses in the Kudruküla were flooded and some residents were evacuated? Such a pity."
-
-I dried my hands on the towel and sat down at the table. The chair creaked and I picked up the tea and brought it closer; the steam felt quite pleasant on my face, almost burning my tongue on the bitter-tasting liquid.
-
-"You wrote about crops?"
-
-She chuckled.
-
-"You write about whatever is in front of you. I still remember the wet smell in the air as we dug up the potatoes in the cold, frost coming early and the cabbage heads being too small one year. But it was better to have food in the cellar than nothing at all. We had to share most of the crops with the cooperative, but it was better than being in some of the other neighborhoods, closer to Narva."</div>
-      </div>
-    </div>
-
+    <div id="works-list"></div>
     <div class="show-more-row hidden">
       <button class="show-more">show more</button>
     </div>
-
   </div>
 
   <footer>
@@ -221,35 +122,91 @@ She chuckled.
 </div>
 <script>
 const VISIBLE = 5;
-const entries = Array.from(document.querySelectorAll('.writing-entry'));
+const list = document.getElementById('works-list');
 const showMoreRow = document.querySelector('.show-more-row');
 const showMoreBtn = document.querySelector('.show-more');
 
-if(entries.length > VISIBLE){
-  entries.slice(VISIBLE).forEach(e => e.classList.add('hidden'));
-  showMoreRow.classList.remove('hidden');
+function getEntries(){ return Array.from(list.querySelectorAll('.writing-entry')); }
+
+function openEntry(entry){
+  getEntries().forEach(e => {
+    e.classList.remove('open');
+    e.querySelector('.wl-toggle').textContent = '+';
+  });
+  entry.classList.remove('hidden');
+  entry.classList.add('open');
+  entry.querySelector('.wl-toggle').textContent = '−';
+}
+
+function buildEntries(works){
+  list.innerHTML = '';
+  works.forEach(work => {
+    const div = document.createElement('div');
+    div.className = 'writing-entry';
+    div.id = work.id;
+    div.innerHTML = `
+      <div class="entry-header">
+        <span class="wl-title">${work.title}</span>
+        <span class="wl-right">
+          <span class="wl-meta">${work.date}</span>
+          <span class="wl-toggle">+</span>
+        </span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-text">${work.text}</div>
+      </div>`;
+    list.appendChild(div);
+  });
+
+  // apply last-of-type border via JS since dynamic
+  const entries = getEntries();
+  if(entries.length > 0){
+    entries[entries.length - 1].style.borderBottom = '0.5px solid var(--faint)';
+  }
+
+  // hide past VISIBLE
+  if(entries.length > VISIBLE){
+    entries.slice(VISIBLE).forEach(e => e.classList.add('hidden'));
+    showMoreRow.classList.remove('hidden');
+  }
+
+  // accordion + hash
+  entries.forEach(entry => {
+    entry.querySelector('.entry-header').addEventListener('click', function(){
+      const isOpen = entry.classList.contains('open');
+      getEntries().forEach(e => {
+        e.classList.remove('open');
+        e.querySelector('.wl-toggle').textContent = '+';
+      });
+      if(!isOpen){
+        entry.classList.add('open');
+        entry.querySelector('.wl-toggle').textContent = '−';
+        if(entry.id) history.replaceState(null, '', '#' + entry.id);
+      } else {
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
+
+  // open from hash on load
+  if(window.location.hash){
+    const target = list.querySelector(window.location.hash);
+    if(target){
+      openEntry(target);
+      setTimeout(() => target.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+    }
+  }
 }
 
 showMoreBtn.addEventListener('click', function(){
-  entries.forEach(e => e.classList.remove('hidden'));
+  getEntries().forEach(e => e.classList.remove('hidden'));
   showMoreRow.classList.add('hidden');
 });
 
-entries.forEach(entry => {
-  const header = entry.querySelector('.entry-header');
-  const toggle = entry.querySelector('.wl-toggle');
-  header.addEventListener('click', function(){
-    const isOpen = entry.classList.contains('open');
-    entries.forEach(e => {
-      e.classList.remove('open');
-      e.querySelector('.wl-toggle').textContent = '+';
-    });
-    if(!isOpen){
-      entry.classList.add('open');
-      toggle.textContent = '−';
-    }
-  });
-});
+fetch('content/works.json')
+  .then(r => r.json())
+  .then(buildEntries)
+  .catch(() => { list.innerHTML = '<p style="color:var(--dim);font-size:0.9rem;padding:1rem 0">works unavailable.</p>'; });
 </script>
 </body>
 </html>
