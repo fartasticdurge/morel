@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>notes — companionship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Mono:wght@0,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0e0d0b;
+  --paper:#f5f0e8;
+  --dim:#7a7268;
+  --accent:#8b3a2a;
+  --faint:#2a2620;
+}
+body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100vh;display:flex;justify-content:center;padding:3rem 1.5rem;overflow-x:hidden}
+
+.page{width:100%;max-width:420px;display:flex;flex-direction:column;gap:0;position:relative}
+
+/* puzzle back arrow */
+.back{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:4rem;color:var(--paper);text-decoration:none;display:inline-block;margin-bottom:3rem;cursor:pointer;transition:font-size 0.3s ease, color 0.3s ease;user-select:none;line-height:1}
+.back.phase-1{font-size:4rem}
+.back.phase-2{font-size:2rem;color:var(--dim);cursor:pointer}
+.back.phase-3{font-size:0.9rem;color:var(--faint);cursor:pointer}
+
+/* accordion outer */
+.accordion{border-top:0.5px solid var(--faint);margin-bottom:2rem}
+.accordion-header{display:flex;align-items:baseline;justify-content:space-between;padding:0.85rem 0;cursor:pointer;border-bottom:0.5px solid var(--faint)}
+.accordion-header:hover .acc-title{color:var(--paper)}
+.acc-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.15rem;color:#a09688;transition:color 0.2s}
+.acc-toggle{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);transition:color 0.2s}
+.accordion-header:hover .acc-toggle{color:var(--dim)}
+.accordion.open .acc-toggle{color:var(--accent)}
+
+.accordion-body{overflow:hidden;max-height:0;opacity:0;transition:max-height 0.4s ease, opacity 0.3s ease}
+.accordion.open .accordion-body{max-height:2000px;opacity:1}
+
+/* chaos zone */
+.thing{margin:1.8rem 0}
+.thing a{text-decoration:none;color:inherit}
+.thing a:hover{text-decoration:underline;text-decoration-color:var(--faint)}
+.t1{font-weight:300;font-style:italic;font-size:1.3rem;color:#a09688}
+.t2{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;color:var(--dim);text-transform:lowercase}
+.t3{font-weight:300;font-size:1.05rem;color:#6a6058}
+.t4{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.08em;color:var(--faint)}
+
+/* invisible text */
+.invisible{color:var(--ink);font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;user-select:text}
+.invisible a{color:var(--ink);text-decoration:none}
+.invisible a:hover{color:var(--ink)}
+.invisible-block{margin:2.5rem 0}
+
+/* hidden section */
+.hidden-section{margin-top:3rem;padding-top:2rem;border-top:0.5px solid #1a1814}
+.h-thing{margin-bottom:2rem}
+.h-thing a{text-decoration:none;color:inherit}
+.h-thing a:hover{text-decoration:underline;text-decoration-color:var(--faint)}
+.ht1{font-weight:300;font-style:italic;font-size:1.1rem;color:#6a6058}
+.ht2{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;color:var(--faint);text-transform:lowercase;margin-top:0.2rem}
+
+footer{margin-top:4rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
+.footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#1e1c18;text-transform:lowercase}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- puzzle arrow: runs away twice, third click works -->
+  <a class="back phase-1" id="back-arrow">←</a>
+
+  <div class="accordion" id="main-accordion">
+    <div class="accordion-header" id="acc-header">
+      <span class="acc-title">companionship — notes</span>
+      <span class="acc-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+
+      <!-- things just sitting there -->
+      <div class="thing">
+        <p class="t2"><a href="https://www.youtube.com/watch?v=mlCunSqf4PQ" target="_blank" rel="noopener">polarrana — chaos</a></p>
+      </div>
+
+      <div class="thing">
+        <p class="t1"><a href="https://www.goodreads.com/book/show/29773751-solar-bones" target="_blank" rel="noopener">Solar Bones</a></p>
+      </div>
+
+      <div class="thing">
+        <p class="t3"><a href="https://www.youtube.com/watch?v=SllpB3W5f6s" target="_blank" rel="noopener">Dark academia</a></p>
+      </div>
+
+      <div class="thing">
+        <p class="t4"><a href="https://www.goodreads.com/book/show/203200544-perfection" target="_blank" rel="noopener">Perfection — Vincenzo Latronico</a></p>
+      </div>
+
+      <!-- invisible text -->
+      <div class="invisible-block">
+        <span class="invisible"><a href="#deeper">danger, don't click here</a></span>
+      </div>
+
+      <!-- hidden section -->
+      <div class="hidden-section" id="deeper">
+        <div class="h-thing">
+          <p class="ht1"><a href="https://www.new-east-archive.org/tiles/show/3792/estonian-homes-Triin-Kerge-Kodukoht" target="_blank" rel="noopener">Kodukoht</a></p>
+          <p class="ht2">Triin Kerge</p>
+        </div>
+        <!-- add more things here -->
+		<div class="thing">
+			<p class="t4"><a href="https://www.imdb.com/title/tt23640230/" target="_blank" rel="noopener">the sauna sisterhood</a></p>
+		</div>
+		
+		
+      </div>
+
+    </div><!-- end accordion body -->
+  </div><!-- end accordion -->
+
+  <footer>
+    <p class="footer-copy">© i·c morel</p>
+  </footer>
+
+</div>
+
+<script>
+// --- puzzle back arrow ---
+const arrow = document.getElementById('back-arrow');
+let phase = 1;
+
+function moveArrow(){
+  const page = document.querySelector('.page');
+  const pageRect = page.getBoundingClientRect();
+  const arrowRect = arrow.getBoundingClientRect();
+  const maxX = pageRect.width - arrowRect.width - 10;
+  const maxY = Math.min(300, window.innerHeight * 0.4);
+  const x = Math.floor(Math.random() * maxX);
+  const y = Math.floor(Math.random() * maxY) + 20;
+  arrow.style.position = 'absolute';
+  arrow.style.left = x + 'px';
+  arrow.style.top = y + 'px';
+}
+
+arrow.addEventListener('mouseenter', function(){
+  if(phase === 1){
+    moveArrow();
+    arrow.classList.remove('phase-1');
+    arrow.classList.add('phase-2');
+    phase = 2;
+  } else if(phase === 2){
+    moveArrow();
+    arrow.classList.remove('phase-2');
+    arrow.classList.add('phase-3');
+    phase = 3;
+  }
+});
+
+arrow.addEventListener('click', function(e){
+  if(phase === 3){
+    window.location.href = '/';
+  } else {
+    e.preventDefault();
+    moveArrow();
+  }
+});
+
+// --- accordion ---
+const accordion = document.getElementById('main-accordion');
+const accHeader = document.getElementById('acc-header');
+const toggle = accHeader.querySelector('.acc-toggle');
+
+accHeader.addEventListener('click', function(){
+  const isOpen = accordion.classList.contains('open');
+  if(isOpen){
+    accordion.classList.remove('open');
+    toggle.textContent = '+';
+  } else {
+    accordion.classList.add('open');
+    toggle.textContent = '−';
+  }
+});
+</script>
+</body>
+</html>
