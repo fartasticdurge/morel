@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>admin — i·c morel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Mono:wght@0,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0e0d0b;
+  --paper:#f5f0e8;
+  --dim:#7a7268;
+  --accent:#8b3a2a;
+  --faint:#2a2620;
+}
+body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100vh;display:flex;justify-content:center;padding:3rem 1.5rem}
+
+.page{width:100%;max-width:420px;display:flex;flex-direction:column;gap:0}
+
+.page-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:2rem}
+
+.field{display:flex;flex-direction:column;border-top:0.5px solid var(--faint);padding:0.9rem 0}
+.field:last-of-type{border-bottom:0.5px solid var(--faint)}
+
+label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--accent);margin-bottom:0.5rem}
+
+input, textarea{background:transparent;border:none;outline:none;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;color:var(--paper);width:100%;resize:none}
+input::placeholder, textarea::placeholder{color:var(--faint)}
+textarea{min-height:220px;line-height:1.7}
+
+.hint{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;color:var(--faint);margin-top:0.4rem}
+
+.generate-row{margin-top:1.8rem;display:flex;justify-content:flex-end}
+button{background:transparent;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.65rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);padding:0;border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+button:hover{color:var(--paper);border-color:#5a5040}
+
+.output-block{margin-top:2.5rem;display:none}
+.output-label{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.8rem}
+.output{background:#141210;border:0.5px solid var(--faint);padding:1rem;font-family:'DM Mono',monospace;font-size:0.55rem;line-height:1.8;color:#a09688;white-space:pre-wrap;word-break:break-all;cursor:pointer;transition:border-color 0.2s}
+.output:hover{border-color:var(--dim)}
+.copy-hint{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;color:var(--faint);margin-top:0.6rem}
+.copy-hint.copied{color:var(--accent)}
+
+.instructions{margin-top:2.5rem;padding-top:1.5rem;border-top:0.5px solid var(--faint)}
+.instructions p{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.08em;color:var(--faint);line-height:1.9;text-transform:lowercase}
+.instructions p span{color:var(--dim)}
+
+footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
+.footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="page-label">add new work</p>
+
+  <div class="field">
+    <label for="title">title</label>
+    <input type="text" id="title" placeholder="anaphalis">
+  </div>
+
+  <div class="field">
+    <label for="wid">id</label>
+    <input type="text" id="wid" placeholder="anaphalis">
+    <p class="hint">lowercase, no spaces or special characters — used for the url anchor</p>
+  </div>
+
+  <div class="field">
+    <label for="date">date</label>
+    <input type="text" id="date" placeholder="february 2025">
+  </div>
+
+  <div class="field">
+    <label for="text">text</label>
+    <textarea id="text" placeholder="paste or type your poem or prose here, line breaks will be preserved"></textarea>
+  </div>
+
+  <div class="generate-row">
+    <button id="generate-btn">generate →</button>
+  </div>
+
+  <div class="output-block" id="output-block">
+    <p class="output-label">copy this entry</p>
+    <div class="output" id="output"></div>
+    <p class="copy-hint" id="copy-hint">click to copy</p>
+  </div>
+
+  <div class="instructions">
+    <p>
+      1. go to <span>content/works.json</span> on github<br>
+      2. paste the entry at the top of the array, after the opening <span>[</span><br>
+      3. make sure there's a <span>,</span> after your entry before the next one<br>
+    </p>
+  </div>
+
+  <footer>
+    <p class="footer-copy">© i·c morel</p>
+  </footer>
+
+</div>
+<script>
+document.getElementById('title').addEventListener('input', function(){
+  const slug = this.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  document.getElementById('wid').value = slug;
+});
+
+document.getElementById('generate-btn').addEventListener('click', function(){
+  const title = document.getElementById('title').value.trim();
+  const id = document.getElementById('wid').value.trim();
+  const date = document.getElementById('date').value.trim();
+  const text = document.getElementById('text').value;
+
+  if(!title || !id || !date || !text){
+    alert('please fill in all fields');
+    return;
+  }
+
+  const escaped = text
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\r\n/g, '\\n')
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '\\n');
+
+  const entry = `  {\n    "id": "${id}",\n    "title": "${title}",\n    "date": "${date}",\n    "text": "${escaped}"\n  },`;
+
+  const block = document.getElementById('output-block');
+  const output = document.getElementById('output');
+  output.textContent = entry;
+  block.style.display = 'block';
+
+  output.addEventListener('click', function(){
+    navigator.clipboard.writeText(entry).then(() => {
+      const hint = document.getElementById('copy-hint');
+      hint.textContent = 'copied';
+      hint.classList.add('copied');
+      setTimeout(() => {
+        hint.textContent = 'click to copy';
+        hint.classList.remove('copied');
+      }, 2000);
+    });
+  });
+});
+</script>
+</body>
+</html>
