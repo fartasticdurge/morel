@@ -39,7 +39,10 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .contact-block{margin-top:2.5rem}
 .item-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
 
-.note{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.05rem;color:#a09688;line-height:1.7;margin-bottom:2rem}
+.note{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.05rem;color:#a09688;line-height:1.7;margin-bottom:1rem}
+.email-line{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--dim);margin-bottom:2rem}
+.email-line a{color:var(--dim);text-decoration:none}
+.email-line a:hover{color:var(--paper)}
 
 form{display:flex;flex-direction:column;gap:0}
 
@@ -101,7 +104,7 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
         <img src="icons/icon-goodreads.svg" alt="goodreads">
         <span class="nav-icon-label">goodreads</span>
       </a>
-	  <a href="https://substack.com/@icmorel" class="nav-icon" target="_blank" rel="noopener">
+      <a href="https://substack.com/@icmorel" class="nav-icon" target="_blank" rel="noopener">
         <img src="icons/icon-substack.svg" alt="substack">
         <span class="nav-icon-label">substack</span>
       </a>
@@ -111,6 +114,7 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
   <div class="contact-block">
     <p class="item-label">contact</p>
     <p class="note">for inquiries, submissions, or correspondence.</p>
+    <p class="email-line"><a href="mailto:hello@icmorel.com">hello@icmorel.com</a></p>
 
     <form action="https://formspree.io/f/mvzdwpld" method="POST">
       <div class="field">
