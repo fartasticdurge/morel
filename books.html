@@ -13,7 +13,7 @@
 :root{
   --ink:#0e0d0b;
   --paper:#f5f0e8;
-  --dim:#7a7268;
+  --dim:#9a9288;
   --accent:#8b3a2a;
   --faint:#2a2620;
 }
@@ -43,17 +43,25 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .book-status{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--dim);margin-bottom:0.6rem}
 .book-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.4rem;color:var(--paper);margin-bottom:0.5rem;line-height:1.2}
 .book-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:lowercase;color:var(--dim);margin-bottom:1.2rem}
-.book-desc{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#a09688}
-.book-desc{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#a09688;margin-bottom:1.8rem}
+.book-desc{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#b8ada0;margin-bottom:1.8rem}
 
-.book-cover{position:relative;display:block;margin-bottom:1.8rem}
+.book-cover{position:relative;display:block;margin-bottom:1.8rem;width:70%;margin-left:auto;margin-right:auto}
 .book-cover img{width:100%;display:block;filter:brightness(0.92)}
 .cover-rule-l{position:absolute;left:-8px;top:0;width:0.5px;height:100%;background:var(--accent);opacity:0.4}
 .cover-rule-b{position:absolute;bottom:-8px;left:0;width:100%;height:0.5px;background:var(--accent);opacity:0.4}
 .cover-corner{position:absolute;top:-5px;right:-5px;width:10px;height:10px;border-top:0.5px solid var(--dim);border-right:0.5px solid var(--dim)}
 
+.buy-links{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem}
 .book-buy{display:inline-block;font-family:'DM Mono',monospace;font-size:0.58rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);text-decoration:none;border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
 .book-buy:hover{color:var(--paper);border-color:#5a5040}
+
+.reviews{margin-top:2rem;display:flex;flex-direction:column;gap:0}
+.review{padding:1.2rem 0;border-top:0.5px solid var(--faint)}
+.review:last-child{border-bottom:0.5px solid var(--faint)}
+.review-quote{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1rem;line-height:1.8;color:#b8ada0;margin-bottom:0.6rem;border-left:1px solid var(--accent);padding-left:1rem}
+.review-attr{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:lowercase;color:var(--faint);padding-left:1rem}
+.review-attr a{color:var(--faint);text-decoration:none;transition:color 0.2s}
+.review-attr a:hover{color:var(--dim)}
 
 footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
 .footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
@@ -97,8 +105,8 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
       <a href="https://www.goodreads.com/user/show/188700803-i-c-morel" class="nav-icon" target="_blank" rel="noopener">
         <img src="icons/icon-goodreads.svg" alt="goodreads">
         <span class="nav-icon-label">goodreads</span>
-	    </a>
-	  <a href="https://substack.com/@icmorel" class="nav-icon" target="_blank" rel="noopener">
+      </a>
+      <a href="https://substack.com/@icmorel" class="nav-icon" target="_blank" rel="noopener">
         <img src="icons/icon-substack.svg" alt="substack">
         <span class="nav-icon-label">substack</span>
       </a>
@@ -120,7 +128,23 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
       </a>
       <p class="book-desc">a man in tallinn has found the one job no man is supposed to want. paid companion for the lonely, the isolated, the elderly. the role exists in european legislation but not in culture, designed for women, borrowed from a practice that only makes sense in japan. he does it anyway, and he is good at it.
 the job asks him to be present for everyone. he is. the rest of his life arranges itself around that fact.</p>
-      <a href="https://www.amazon.com/dp/B0H2RLW4RR/" class="book-buy" target="_blank" rel="noopener">pre-order on amazon →</a>
+      <div class="buy-links">
+        <a href="https://www.amazon.com/dp/B0H2RLW4RR/" class="book-buy" target="_blank" rel="noopener">amazon →</a>
+        <a href="https://www.barnesandnoble.com/w/companionship-ic-morel/1150284899?ean=9789730441819" class="book-buy" target="_blank" rel="noopener">barnes &amp; noble →</a>
+        <a href="https://www.kobo.com/us/en/ebook/companionship-1" class="book-buy" target="_blank" rel="noopener">kobo →</a>
+      </div>
+
+      <div class="reviews">
+        <div class="review">
+          <p class="review-quote">"a short read well worth taking, no matter which genre you enjoy."</p>
+          <p class="review-attr"><a href="https://reedsy.com/discovery/book/companionship-ic-morel#review" target="_blank" rel="noopener">Robert Cain - Reedsy</a></p>
+        </div>
+        <div class="review">
+          <p class="review-quote">"companionship is quiet, sharp, and devastating in the way it turns ordinary moments — a hug, a meal, a logged appointment — into something full of meaning."</p>
+          <p class="review-attr"><a href="https://www.goodreads.com/book/show/252814986-companionship" target="_blank" rel="noopener">JenniferARCReads - Goodreads</a></p>
+        </div>
+      </div>
+
     </div>
 
   </div>
