@@ -158,7 +158,6 @@ form.addEventListener('submit', async function(e) {
 function styleEOForm(){
   const subscribe = document.querySelector('.subscribe');
   if(!subscribe) return;
-
   subscribe.querySelectorAll('form, div[class*="eo"], div[id*="eo"]').forEach(el => {
     el.style.setProperty('background','transparent','important');
     el.style.setProperty('border','none','important');
@@ -166,7 +165,6 @@ function styleEOForm(){
     el.style.setProperty('padding','0','important');
     el.style.setProperty('margin','0','important');
   });
-
   subscribe.querySelectorAll('input[type="email"]').forEach(el => {
     el.style.setProperty('background','transparent','important');
     el.style.setProperty('border','none','important');
@@ -182,7 +180,6 @@ function styleEOForm(){
     el.style.setProperty('box-shadow','none','important');
     el.placeholder = 'your email address';
   });
-
   subscribe.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(el => {
     el.style.setProperty('background','transparent','important');
     el.style.setProperty('border','none','important');
@@ -202,7 +199,6 @@ function styleEOForm(){
     el.style.setProperty('width','auto','important');
     el.value = 'subscribe →';
   });
-
   subscribe.querySelectorAll('label').forEach(el => {
     el.style.setProperty('font-family','DM Mono, monospace','important');
     el.style.setProperty('font-size','0.6rem','important');
@@ -210,24 +206,15 @@ function styleEOForm(){
     el.style.setProperty('text-transform','lowercase','important');
     el.style.setProperty('color','#8b3a2a','important');
   });
-
-  subscribe.querySelectorAll('a[href*="emailoctopus"], div[class*="footer"], p[class*="footer"]').forEach(el => {
-    el.style.setProperty('font-family','DM Mono, monospace','important');
+  subscribe.querySelectorAll('a[href*="emailoctopus"]').forEach(el => {
     el.style.setProperty('font-size','0.42rem','important');
     el.style.setProperty('color','#2a2620','important');
-    el.style.setProperty('text-align','center','important');
   });
 }
 
-const observer = new MutationObserver(function(){
-  const eoInput = document.querySelector('.subscribe input[type="email"], .subscribe input[type="submit"]');
-  if(eoInput){
-    styleEOForm();
-    setTimeout(styleEOForm, 500);
-    setTimeout(styleEOForm, 1500);
-  }
-});
-observer.observe(document.querySelector('.subscribe'), {childList:true, subtree:true});
+setTimeout(styleEOForm, 1000);
+setTimeout(styleEOForm, 2000);
+setTimeout(styleEOForm, 4000);
 </script>
 </body>
 </html>
