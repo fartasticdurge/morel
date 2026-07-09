@@ -49,11 +49,90 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .photo-caption{margin-top:14px;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--faint);text-transform:lowercase}
 */
 
-.bio{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#a09688}
+.bio{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#b8ada0}
 .bio p{margin-bottom:1.2rem}
 .bio p:last-child{margin-bottom:0}
 
+.subscribe{margin-top:2.5rem;padding-top:1.5rem;border-top:0.5px solid var(--faint)}
 
+/* EmailOctopus form overrides */
+#eo-form-wrapper, .eo-form-wrapper,
+[id^="eo-"] form, .eo-form{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  margin:0 !important;
+  font-family:'DM Mono',monospace !important;
+}
+[id^="eo-"] input[type="email"],
+.eo-form input[type="email"]{
+  background:transparent !important;
+  border:none !important;
+  border-top:0.5px solid var(--faint) !important;
+  border-radius:0 !important;
+  color:var(--paper) !important;
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:1.05rem !important;
+  font-weight:300 !important;
+  padding:0.9rem 0 !important;
+  width:100% !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+[id^="eo-"] input[type="email"]::placeholder,
+.eo-form input[type="email"]::placeholder{
+  color:var(--faint) !important;
+}
+[id^="eo-"] input[type="submit"],
+[id^="eo-"] button[type="submit"],
+.eo-form input[type="submit"],
+.eo-form button[type="submit"]{
+  background:transparent !important;
+  border:none !important;
+  border-bottom:0.5px solid var(--faint) !important;
+  border-radius:0 !important;
+  color:var(--dim) !important;
+  font-family:'DM Mono',monospace !important;
+  font-size:0.65rem !important;
+  font-weight:300 !important;
+  letter-spacing:0.2em !important;
+  text-transform:lowercase !important;
+  padding:0 0 2px 0 !important;
+  cursor:pointer !important;
+  margin-top:1rem !important;
+  float:right !important;
+  box-shadow:none !important;
+  width:auto !important;
+}
+[id^="eo-"] input[type="submit"]:hover,
+[id^="eo-"] button[type="submit"]:hover,
+.eo-form input[type="submit"]:hover,
+.eo-form button[type="submit"]:hover{
+  color:var(--paper) !important;
+  border-color:#5a5040 !important;
+  background:transparent !important;
+}
+[id^="eo-"] label,
+.eo-form label{
+  font-family:'DM Mono',monospace !important;
+  font-size:0.6rem !important;
+  letter-spacing:0.18em !important;
+  text-transform:lowercase !important;
+  color:var(--accent) !important;
+}
+[id^="eo-"] .eo-form-footer,
+.eo-form-footer{
+  text-align:center !important;
+  margin-top:0.8rem !important;
+}
+[id^="eo-"] .eo-form-footer a,
+.eo-form-footer a{
+  font-family:'DM Mono',monospace !important;
+  font-size:0.42rem !important;
+  color:var(--faint) !important;
+  letter-spacing:0.1em !important;
+}
 
 footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
 .footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
@@ -98,7 +177,7 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
         <img src="icons/icon-goodreads.svg" alt="goodreads">
         <span class="nav-icon-label">goodreads</span>
       </a>
-	  <a href="https://substack.com/@icmorel" class="nav-icon" target="_blank" rel="noopener">
+      <a href="https://substack.com/@icmorel" class="nav-icon" target="_blank" rel="noopener">
         <img src="icons/icon-substack.svg" alt="substack">
         <span class="nav-icon-label">substack</span>
       </a>
@@ -107,20 +186,19 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
 
   <div class="about-block">
     <p class="item-label">about</p>
-
     <div class="bio">
       <p>i.c. resides in eastern europe.</p>
-      <p>she like to play with form and structure, seeking inspiration in works writen in stream of consciousness, defamiliarization and simple prose.</p>
-      <p>curently editing the box and drafting sisterhood.</p>
-	  <p>companionship is her debut novella.</p>
+      <p>she likes to play with form and structure, seeking inspiration in works written in stream of consciousness, defamiliarization and simple prose.</p>
+      <p>currently editing the box and drafting sisterhood.</p>
+      <p>companionship is her debut novella.</p>
     </div>
-
-
   </div>
-    <div class="subscribe">
-		<p class="item-label">leave your email if you want to be updated on anything new</p>
-<script async src="https://eocampaign1.com/form/ff7b33e0-7a9e-11f1-b633-3f92cecdc4b3.js" data-form="ff7b33e0-7a9e-11f1-b633-3f92cecdc4b3"></script>
+
+  <div class="subscribe">
+    <p class="item-label">stay in the loop</p>
+    <script async src="https://eocampaign1.com/form/ff7b33e0-7a9e-11f1-b633-3f92cecdc4b3.js" data-form="ff7b33e0-7a9e-11f1-b633-3f92cecdc4b3"></script>
   </div>
+
   <footer>
     <p class="footer-copy">© i·c morel</p>
   </footer>
