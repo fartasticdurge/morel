@@ -39,7 +39,7 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .contact-block{margin-top:2.5rem}
 .item-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
 
-.note{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.05rem;color:#b8ada0;line-height:1.7;margin-bottom:1rem}
+.note{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.05rem;color:#a09688;line-height:1.7;margin-bottom:1rem}
 .email-line{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--dim);margin-bottom:2rem}
 .email-line a{color:var(--dim);text-decoration:none}
 .email-line a:hover{color:var(--paper)}
@@ -59,88 +59,7 @@ textarea{min-height:100px;line-height:1.6}
 button[type="submit"]{background:transparent;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.65rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);padding:0;border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
 button[type="submit"]:hover{color:var(--paper);border-color:#5a5040}
 
-.success{display:none;margin-top:2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:#b8ada0}
-
-.subscribe{margin-top:2.5rem;padding-top:1.5rem;border-top:0.5px solid var(--faint)}
-
-/* EmailOctopus form overrides */
-#eo-form-wrapper, .eo-form-wrapper,
-[id^="eo-"] form, .eo-form{
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
-  padding:0 !important;
-  margin:0 !important;
-  font-family:'DM Mono',monospace !important;
-}
-[id^="eo-"] input[type="email"],
-.eo-form input[type="email"]{
-  background:transparent !important;
-  border:none !important;
-  border-top:0.5px solid var(--faint) !important;
-  border-radius:0 !important;
-  color:var(--paper) !important;
-  font-family:'Cormorant Garamond',serif !important;
-  font-size:1.05rem !important;
-  font-weight:300 !important;
-  padding:0.9rem 0 !important;
-  width:100% !important;
-  outline:none !important;
-  box-shadow:none !important;
-}
-[id^="eo-"] input[type="email"]::placeholder,
-.eo-form input[type="email"]::placeholder{
-  color:var(--faint) !important;
-}
-[id^="eo-"] input[type="submit"],
-[id^="eo-"] button[type="submit"],
-.eo-form input[type="submit"],
-.eo-form button[type="submit"]{
-  background:transparent !important;
-  border:none !important;
-  border-bottom:0.5px solid var(--faint) !important;
-  border-radius:0 !important;
-  color:var(--dim) !important;
-  font-family:'DM Mono',monospace !important;
-  font-size:0.65rem !important;
-  font-weight:300 !important;
-  letter-spacing:0.2em !important;
-  text-transform:lowercase !important;
-  padding:0 0 2px 0 !important;
-  cursor:pointer !important;
-  margin-top:1rem !important;
-  float:right !important;
-  box-shadow:none !important;
-  width:auto !important;
-}
-[id^="eo-"] input[type="submit"]:hover,
-[id^="eo-"] button[type="submit"]:hover,
-.eo-form input[type="submit"]:hover,
-.eo-form button[type="submit"]:hover{
-  color:var(--paper) !important;
-  border-color:#5a5040 !important;
-  background:transparent !important;
-}
-[id^="eo-"] label,
-.eo-form label{
-  font-family:'DM Mono',monospace !important;
-  font-size:0.6rem !important;
-  letter-spacing:0.18em !important;
-  text-transform:lowercase !important;
-  color:var(--accent) !important;
-}
-[id^="eo-"] .eo-form-footer,
-.eo-form-footer{
-  text-align:center !important;
-  margin-top:0.8rem !important;
-}
-[id^="eo-"] .eo-form-footer a,
-.eo-form-footer a{
-  font-family:'DM Mono',monospace !important;
-  font-size:0.42rem !important;
-  color:var(--faint) !important;
-  letter-spacing:0.1em !important;
-}
+.success{display:none;margin-top:2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:#a09688}
 
 footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);display:flex;justify-content:flex-end}
 .footer-copy{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:#2e2b26;text-transform:lowercase}
@@ -218,11 +137,6 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
     <p class="success" id="success">thank you — i'll be in touch.</p>
   </div>
 
-  <div class="subscribe">
-    <p class="item-label">stay in the loop</p>
-    <script async src="https://eocampaign1.com/form/ff7b33e0-7a9e-11f1-b633-3f92cecdc4b3.js" data-form="ff7b33e0-7a9e-11f1-b633-3f92cecdc4b3"></script>
-  </div>
-
   <footer>
     <p class="footer-copy">© i·c morel</p>
   </footer>
@@ -240,6 +154,67 @@ form.addEventListener('submit', async function(e) {
     success.style.display = 'block';
   }
 });
+
+function styleEOForm(){
+  const subscribe = document.querySelector('.subscribe');
+  if(!subscribe) return;
+  subscribe.querySelectorAll('form, div[class*="eo"], div[id*="eo"]').forEach(el => {
+    el.style.setProperty('background','transparent','important');
+    el.style.setProperty('border','none','important');
+    el.style.setProperty('box-shadow','none','important');
+    el.style.setProperty('padding','0','important');
+    el.style.setProperty('margin','0','important');
+  });
+  subscribe.querySelectorAll('input[type="email"]').forEach(el => {
+    el.style.setProperty('background','transparent','important');
+    el.style.setProperty('border','none','important');
+    el.style.setProperty('border-top','0.5px solid #2a2620','important');
+    el.style.setProperty('border-radius','0','important');
+    el.style.setProperty('color','#f5f0e8','important');
+    el.style.setProperty('font-family','Cormorant Garamond, serif','important');
+    el.style.setProperty('font-size','1.05rem','important');
+    el.style.setProperty('font-weight','300','important');
+    el.style.setProperty('padding','0.9rem 0','important');
+    el.style.setProperty('width','100%','important');
+    el.style.setProperty('outline','none','important');
+    el.style.setProperty('box-shadow','none','important');
+    el.placeholder = 'your email address';
+  });
+  subscribe.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(el => {
+    el.style.setProperty('background','transparent','important');
+    el.style.setProperty('border','none','important');
+    el.style.setProperty('border-bottom','0.5px solid #2a2620','important');
+    el.style.setProperty('border-radius','0','important');
+    el.style.setProperty('color','#7a7268','important');
+    el.style.setProperty('font-family','DM Mono, monospace','important');
+    el.style.setProperty('font-size','0.65rem','important');
+    el.style.setProperty('font-weight','300','important');
+    el.style.setProperty('letter-spacing','0.2em','important');
+    el.style.setProperty('text-transform','lowercase','important');
+    el.style.setProperty('padding','0 0 2px 0','important');
+    el.style.setProperty('cursor','pointer','important');
+    el.style.setProperty('margin-top','1rem','important');
+    el.style.setProperty('float','right','important');
+    el.style.setProperty('box-shadow','none','important');
+    el.style.setProperty('width','auto','important');
+    el.value = 'subscribe →';
+  });
+  subscribe.querySelectorAll('label').forEach(el => {
+    el.style.setProperty('font-family','DM Mono, monospace','important');
+    el.style.setProperty('font-size','0.6rem','important');
+    el.style.setProperty('letter-spacing','0.18em','important');
+    el.style.setProperty('text-transform','lowercase','important');
+    el.style.setProperty('color','#8b3a2a','important');
+  });
+  subscribe.querySelectorAll('a[href*="emailoctopus"]').forEach(el => {
+    el.style.setProperty('font-size','0.42rem','important');
+    el.style.setProperty('color','#2a2620','important');
+  });
+}
+
+setTimeout(styleEOForm, 1000);
+setTimeout(styleEOForm, 2000);
+setTimeout(styleEOForm, 4000);
 </script>
 </body>
 </html>
