@@ -40,9 +40,7 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .item-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
 
 .note{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.05rem;color:#a09688;line-height:1.7;margin-bottom:1rem}
-.email-line{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--dim);margin-bottom:2rem}
-.email-line a{color:var(--dim);text-decoration:none}
-.email-line a:hover{color:var(--paper)}
+
 
 form{display:flex;flex-direction:column;gap:0}
 
@@ -116,7 +114,11 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
     <p class="note">for inquiries, submissions, or correspondence.</p>
     <p style="font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;color:var(--accent);font-style:italic;margin-bottom:2rem;line-height:1.8">if your message involves an opportunity that requires my wallet, please spare us both.</p>
 
-    <form action="https://formspree.io/f/mvzdwpld" method="POST">
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="665fb49d-0a5c-47d0-8127-a20fc03bec40">
+      <input type="hidden" name="subject" value="new message from icmorel.com">
+      <input type="hidden" name="from_name" value="i·c morel website">
+      <input type="checkbox" name="botcheck" style="display:none">
       <div class="field">
         <label for="name">name</label>
         <input type="text" id="name" name="name" placeholder="your name" required>
@@ -154,67 +156,6 @@ form.addEventListener('submit', async function(e) {
     success.style.display = 'block';
   }
 });
-
-function styleEOForm(){
-  const subscribe = document.querySelector('.subscribe');
-  if(!subscribe) return;
-  subscribe.querySelectorAll('form, div[class*="eo"], div[id*="eo"]').forEach(el => {
-    el.style.setProperty('background','transparent','important');
-    el.style.setProperty('border','none','important');
-    el.style.setProperty('box-shadow','none','important');
-    el.style.setProperty('padding','0','important');
-    el.style.setProperty('margin','0','important');
-  });
-  subscribe.querySelectorAll('input[type="email"]').forEach(el => {
-    el.style.setProperty('background','transparent','important');
-    el.style.setProperty('border','none','important');
-    el.style.setProperty('border-top','0.5px solid #2a2620','important');
-    el.style.setProperty('border-radius','0','important');
-    el.style.setProperty('color','#f5f0e8','important');
-    el.style.setProperty('font-family','Cormorant Garamond, serif','important');
-    el.style.setProperty('font-size','1.05rem','important');
-    el.style.setProperty('font-weight','300','important');
-    el.style.setProperty('padding','0.9rem 0','important');
-    el.style.setProperty('width','100%','important');
-    el.style.setProperty('outline','none','important');
-    el.style.setProperty('box-shadow','none','important');
-    el.placeholder = 'your email address';
-  });
-  subscribe.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(el => {
-    el.style.setProperty('background','transparent','important');
-    el.style.setProperty('border','none','important');
-    el.style.setProperty('border-bottom','0.5px solid #2a2620','important');
-    el.style.setProperty('border-radius','0','important');
-    el.style.setProperty('color','#7a7268','important');
-    el.style.setProperty('font-family','DM Mono, monospace','important');
-    el.style.setProperty('font-size','0.65rem','important');
-    el.style.setProperty('font-weight','300','important');
-    el.style.setProperty('letter-spacing','0.2em','important');
-    el.style.setProperty('text-transform','lowercase','important');
-    el.style.setProperty('padding','0 0 2px 0','important');
-    el.style.setProperty('cursor','pointer','important');
-    el.style.setProperty('margin-top','1rem','important');
-    el.style.setProperty('float','right','important');
-    el.style.setProperty('box-shadow','none','important');
-    el.style.setProperty('width','auto','important');
-    el.value = 'subscribe →';
-  });
-  subscribe.querySelectorAll('label').forEach(el => {
-    el.style.setProperty('font-family','DM Mono, monospace','important');
-    el.style.setProperty('font-size','0.6rem','important');
-    el.style.setProperty('letter-spacing','0.18em','important');
-    el.style.setProperty('text-transform','lowercase','important');
-    el.style.setProperty('color','#8b3a2a','important');
-  });
-  subscribe.querySelectorAll('a[href*="emailoctopus"]').forEach(el => {
-    el.style.setProperty('font-size','0.42rem','important');
-    el.style.setProperty('color','#2a2620','important');
-  });
-}
-
-setTimeout(styleEOForm, 1000);
-setTimeout(styleEOForm, 2000);
-setTimeout(styleEOForm, 4000);
 </script>
 </body>
 </html>
