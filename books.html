@@ -39,9 +39,19 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .books-block{margin-top:2.5rem}
 .item-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:lowercase;color:var(--accent);margin-bottom:0.9rem}
 
-.book{padding:1.5rem 0;border-top:0.5px solid var(--faint);border-bottom:0.5px solid var(--faint)}
-.book-status{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--dim);margin-bottom:0.6rem}
-.book-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.4rem;color:var(--paper);margin-bottom:0.5rem;line-height:1.2}
+.book-accordion{border-top:0.5px solid var(--faint);border-bottom:0.5px solid var(--faint)}
+.book-header{display:flex;align-items:baseline;justify-content:space-between;padding:0.85rem 0;cursor:pointer}
+.book-header:hover .book-header-title{color:var(--paper)}
+.book-header-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.4rem;color:#b8ada0;transition:color 0.2s}
+.book-header-toggle{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--faint);transition:color 0.2s}
+.book-body{overflow:hidden;max-height:0;opacity:0;transition:max-height 0.4s ease,opacity 0.3s ease;padding:0}
+.book-accordion.open .book-body{max-height:3000px;opacity:1;padding-bottom:1.5rem}
+.book-accordion.open .book-header-toggle{color:var(--accent)}
+
+.book-status{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:lowercase;color:var(--dim);margin-bottom:0.4rem}
+.book-award{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:lowercase;color:var(--accent);margin-bottom:0.6rem}
+.book-award a{color:var(--accent);text-decoration:none}
+.book-award a:hover{color:var(--dim)}
 .book-meta{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:lowercase;color:var(--dim);margin-bottom:1.2rem}
 .book-desc{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;line-height:1.8;color:#b8ada0;margin-bottom:1.8rem}
 
@@ -54,10 +64,6 @@ body{background:var(--ink);font-family:'Cormorant Garamond',serif;min-height:100
 .buy-links{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem}
 .book-buy{display:inline-block;font-family:'DM Mono',monospace;font-size:0.58rem;font-weight:300;letter-spacing:0.2em;text-transform:lowercase;color:var(--dim);text-decoration:none;border-bottom:0.5px solid var(--faint);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
 .book-buy:hover{color:var(--paper);border-color:#5a5040}
-
-.book-award{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:lowercase;color:var(--accent);margin-bottom:0.6rem}
-.book-award a{color:var(--accent);text-decoration:none}
-.book-award a:hover{color:var(--dim)}
 
 .reviews{margin-top:2rem;display:flex;flex-direction:column;gap:0}
 .review{padding:1.2rem 0;border-top:0.5px solid var(--faint)}
@@ -120,49 +126,50 @@ footer{margin-top:3rem;padding-top:1.2rem;border-top:0.5px solid var(--faint);di
   <div class="books-block">
     <p class="item-label">books</p>
 
-    <div class="book">
-      <p class="book-status">available now</p>
-	  <p class="book-award"><a href="https://literarytitan.com/2026/08/07/literary-titan-silver-book-award-18/" target="_blank" rel="noopener">a literary titan silver book award winner.</a></p>
-      <p class="book-title">companionship</p>
-      <a href="https://www.amazon.com/dp/B0H2RLW4RR/" class="book-cover" target="_blank" rel="noopener">
-        <div class="cover-rule-l"></div>
-        <div class="cover-corner"></div>
-        <img src="content/companionship_front_cover.jpg" alt="companionship cover">
-        <div class="cover-rule-b"></div>
-      </a>
-      <p class="book-desc">a man in tallinn has found the one job no man is supposed to want. paid companion for the lonely, the isolated, the elderly. the role exists in european legislation but not in culture, designed for women, borrowed from a practice that only makes sense in japan. he does it anyway, and he is good at it.
+    <div class="book-accordion" id="companionship">
+      <div class="book-header">
+        <span class="book-header-title">companionship</span>
+        <span class="book-header-toggle">+</span>
+      </div>
+      <div class="book-body">
+        <p class="book-status">available now</p>
+        <p class="book-award"><a href="https://literarytitan.com/2026/08/07/literary-titan-silver-book-award-18/" target="_blank" rel="noopener">a literary titan silver book award winner.</a></p>
+        <a href="https://www.amazon.com/dp/B0H2RLW4RR/" class="book-cover" target="_blank" rel="noopener">
+          <div class="cover-rule-l"></div>
+          <div class="cover-corner"></div>
+          <img src="content/companionship_front_cover.jpg" alt="companionship cover">
+          <div class="cover-rule-b"></div>
+        </a>
+        <p class="book-desc">a man in tallinn has found the one job no man is supposed to want. paid companion for the lonely, the isolated, the elderly. the role exists in european legislation but not in culture, designed for women, borrowed from a practice that only makes sense in japan. he does it anyway, and he is good at it.
 the job asks him to be present for everyone. he is. the rest of his life arranges itself around that fact.</p>
-
-		<div class="buy-links">
-        <a href="https://www.amazon.com/dp/B0H2RLW4RR/" class="book-buy" target="_blank" rel="noopener">amazon →</a>
-        <a href="https://www.barnesandnoble.com/w/companionship-ic-morel/1150284899" class="book-buy" target="_blank" rel="noopener">barnes &amp; noble →</a>
-        <a href="https://www.kobo.com/us/en/ebook/companionship-1" class="book-buy" target="_blank" rel="noopener">kobo →</a>
-    	</div>
-
-	  <div class="reviews">
-        <div class="review">
-          <p class="review-quote">"an incisive novel about relationships, both of the organic and paid-for varieties."</p>
-          <p class="review-attr"><a href="https://www.kirkusreviews.com/book-reviews/ic-morel/companionship/" target="_blank" rel="noopener">Kirkus</a></p>
+        <div class="buy-links">
+          <a href="https://www.amazon.com/dp/B0H2RLW4RR/" class="book-buy" target="_blank" rel="noopener">amazon →</a>
+          <a href="https://www.barnesandnoble.com/w/companionship-ic-morel/1150284899" class="book-buy" target="_blank" rel="noopener">barnes &amp; noble →</a>
+          <a href="https://www.kobo.com/us/en/ebook/companionship-1" class="book-buy" target="_blank" rel="noopener">kobo →</a>
         </div>
-      <div class="reviews">
-        <div class="review">
-          <p class="review-quote">"a character study of a man who's very good at closeness and not very good at being known... conversational, melancholy, and often uncomfortably perceptive about the way people outsource connection while still needing it to feel real."</p>
-          <p class="review-attr"><a href="https://wp.me/p3cyvH-SPi" target="_blank" rel="noopener">Literary Titan</a></p>
-        </div>
-        <div class="review">
-          <p class="review-quote">"a short read well worth taking, no matter which genre you enjoy."</p>
-          <p class="review-attr"><a href="https://reedsy.com/discovery/book/companionship-ic-morel#review" target="_blank" rel="noopener">Robert Cain - Reedsy</a></p>
-        </div>
-        <div class="review">
-          <p class="review-quote">"quiet, sharp, and devastating in the way it turns ordinary moments — a hug, a meal, a logged appointment — into something full of meaning."</p>
-          <p class="review-attr"><a href="https://www.goodreads.com/book/show/252814986-companionship" target="_blank" rel="noopener">JenniferARCReads - Goodreads</a></p>
-        </div>
-		<div class="review">
-          <p class="review-quote">author interview</p>
-          <p class="review-attr"><a href="https://literarytitan.com/2026/07/14/modern-stoicism/" target="_blank" rel="noopener">Literary Titan</a></p>
+        <div class="reviews">
+          <div class="review">
+            <p class="review-quote">"an incisive novel about relationships, both of the organic and paid-for varieties."</p>
+            <p class="review-attr"><a href="https://www.kirkusreviews.com/book-reviews/ic-morel/companionship/" target="_blank" rel="noopener">Kirkus</a></p>
+          </div>
+          <div class="review">
+            <p class="review-quote">"a character study of a man who's very good at closeness and not very good at being known... conversational, melancholy, and often uncomfortably perceptive about the way people outsource connection while still needing it to feel real."</p>
+            <p class="review-attr"><a href="https://wp.me/p3cyvH-SPi" target="_blank" rel="noopener">Literary Titan</a></p>
+          </div>
+          <div class="review">
+            <p class="review-quote">"a short read well worth taking, no matter which genre you enjoy."</p>
+            <p class="review-attr"><a href="https://reedsy.com/discovery/book/companionship-ic-morel#review" target="_blank" rel="noopener">Robert Cain - Reedsy</a></p>
+          </div>
+          <div class="review">
+            <p class="review-quote">"quiet, sharp, and devastating in the way it turns ordinary moments — a hug, a meal, a logged appointment — into something full of meaning."</p>
+            <p class="review-attr"><a href="https://www.goodreads.com/book/show/252814986-companionship" target="_blank" rel="noopener">JenniferARCReads - Goodreads</a></p>
+          </div>
+          <div class="review">
+            <p class="review-quote">author interview</p>
+            <p class="review-attr"><a href="https://literarytitan.com/2026/07/14/modern-stoicism/" target="_blank" rel="noopener">Literary Titan</a></p>
+          </div>
         </div>
       </div>
-
     </div>
 
   </div>
@@ -172,5 +179,34 @@ the job asks him to be present for everyone. he is. the rest of his life arrange
   </footer>
 
 </div>
+<script>
+document.querySelectorAll('.book-accordion').forEach(acc => {
+  const header = acc.querySelector('.book-header');
+  const toggle = acc.querySelector('.book-header-toggle');
+  header.addEventListener('click', function(){
+    const isOpen = acc.classList.contains('open');
+    document.querySelectorAll('.book-accordion').forEach(a => {
+      a.classList.remove('open');
+      a.querySelector('.book-header-toggle').textContent = '+';
+    });
+    if(!isOpen){
+      acc.classList.add('open');
+      toggle.textContent = '−';
+      if(acc.id) history.replaceState(null,'','#'+acc.id);
+    } else {
+      history.replaceState(null,'',window.location.pathname);
+    }
+  });
+});
+
+if(window.location.hash){
+  const target = document.querySelector(window.location.hash);
+  if(target && target.classList.contains('book-accordion')){
+    target.classList.add('open');
+    target.querySelector('.book-header-toggle').textContent = '−';
+    setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'start'}),100);
+  }
+}
+</script>
 </body>
 </html>
